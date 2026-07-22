@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Rule A: Bind Mount volume mapping ./src (local) to /app (container)
+    volumes:
+      - ./src:/app
+      # Menambahkan bind mount (hard file/folder di laptop Anda) untuk library
+      - ./.pip_packages:/home/devuser/.local
+    # Rule B: Keep interactive terminals alive
+    tty: true
+    # Rule C: explicitly run as the non-root user created in Dockerfile
+    user: "1000:1000"

@@ -1,0 +1,9 @@
+# Dependencies
+.pip_packages/
+__pycache__/
+*.pyc
+
+# IDEs and environments
+.vscode/
+.idea/
+.env
